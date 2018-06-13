@@ -25,9 +25,15 @@ if (!is_null($events['events'])) {
 
 				// Build message to reply back
 				$messages = [
-					'type' => 'image',
-					'originalContentUrl' => $imgurl,
-					'previewImageUrl' => $imgurl
+					[
+						'type' => 'text',
+						'text' => 'เมี้ยวว'
+					],
+					[
+						'type' => 'image',
+						'originalContentUrl' => $imgurl,
+						'previewImageUrl' => $imgurl
+					]
 				];
 
 				// Make a POST Request to Messaging API to reply to sender
