@@ -64,8 +64,9 @@ if (!is_null($events['events'])) {
 					'replyToken' => $replyToken,
 				];
 				$data['messages'][0]['type'] = "image";
-				$data['messages'][0]['originalContentUrl'] = "https://www.vectorx2263.com/linebot/randomimg/index.php";
-				$data['messages'][0]['previewImageUrl'] = "https://www.vectorx2263.com/linebot/randomimg/index.php";
+				$ranimg = "https://www.vectorx2263.com/linebot/randomimg/index.php";
+				$data['messages'][0]['originalContentUrl'] = $ranimg;
+				$data['messages'][0]['previewImageUrl'] = $ranimg;
 				$post = json_encode($data);
 				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
