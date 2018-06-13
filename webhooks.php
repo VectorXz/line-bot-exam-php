@@ -51,7 +51,7 @@ if (!is_null($events['events'])) {
 			} else {
 				// Get text sent
 				//$text = $event['source']['userId'];
-				$text = "Command not found : received ".$message;
+				$text = "Command not found : received ".var_dump($event);
 				// Get replyToken
 				$replyToken = $event['replyToken'];
 
