@@ -53,6 +53,8 @@ if (!is_null($events['events'])) {
 				$data['messages'][3]['type'] = "image";
 				$data['messages'][3]['originalContentUrl'] = "https://www.vectorx2263.com/linebot/followus.jpg";
 				$data['messages'][3]['previewImageUrl'] = "https://www.vectorx2263.com/linebot/followus.jpg";
+				$data['messages'][4]['type'] = "text";
+				$data['messages'][4]['text'] = "อันนี้จะเป็นเทรดโซนจ้าา ใช้ขายของเท่านั้นนะครับ http://line.me/ti/g/7gkktMkUd6";
 				$post = json_encode($data);
 				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
