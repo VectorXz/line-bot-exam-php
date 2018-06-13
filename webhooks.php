@@ -41,11 +41,18 @@ if (!is_null($events['events'])) {
 				$data = [
 					'replyToken' => $replyToken,
 				];
-				$data['messages'][0]['type'] = "text";
-				$data['messages'][0]['text'] = "อย่าทิ้งกันไป";
-				$data['messages'][1]['type'] = "sticker";
-				$data['messages'][1]['packageId'] = "1";
-				$data['messages'][1]['stickerId'] = "131";
+				$data['messages'][0]['type'] = "image";
+				$data['messages'][0]['originalContentUrl'] = "https://www.vectorx2263.com/linebot/welcome_card.jpg";
+				$data['messages'][0]['previewImageUrl'] = "https://www.vectorx2263.com/linebot/welcome_card.jpg";
+				$data['messages'][1]['type'] = "image";
+				$data['messages'][1]['originalContentUrl'] = "https://www.vectorx2263.com/linebot/introduce.jpg";
+				$data['messages'][1]['previewImageUrl'] = "https://www.vectorx2263.com/linebot/introduce.jpg";
+				$data['messages'][2]['type'] = "image";
+				$data['messages'][2]['originalContentUrl'] = "https://www.vectorx2263.com/linebot/rules.jpg";
+				$data['messages'][2]['previewImageUrl'] = "https://www.vectorx2263.com/linebot/rules.jpg";
+				$data['messages'][3]['type'] = "image";
+				$data['messages'][3]['originalContentUrl'] = "https://www.vectorx2263.com/linebot/followus.jpg";
+				$data['messages'][3]['previewImageUrl'] = "https://www.vectorx2263.com/linebot/followus.jpg";
 				$post = json_encode($data);
 				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
