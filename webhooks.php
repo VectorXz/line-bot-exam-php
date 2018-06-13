@@ -64,7 +64,7 @@ if (!is_null($events['events'])) {
 					'replyToken' => $replyToken,
 				];
 				$data['messages'][0]['type'] = "image";
-				$ranimg = "https://www.vectorx2263.com/linebot/randomimg/".file_get_contents('http://localhost/randomimg/index.php');
+				$ranimg = "https://www.vectorx2263.com/linebot/randomimg/".file_get_contents('https://www.vectorx2263.com/linebot/randomimg/index.php');
 				$data['messages'][0]['originalContentUrl'] = $ranimg;
 				$data['messages'][0]['previewImageUrl'] = $ranimg;
 				$post = json_encode($data);
