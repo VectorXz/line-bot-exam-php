@@ -40,8 +40,12 @@ if (!is_null($events['events'])) {
 				$url = 'https://api.line.me/v2/bot/message/reply';
 				$data = [
 					'replyToken' => $replyToken,
-					'messages' => [$messages],
 				];
+				$data['messages'][0]['type'] = "text";
+				$data['messages'][0]['text'] = "อย่าทิ้งกันไป";
+				$data['messages'][1]['type'] = "sticker";
+				$data['messages'][1]['packageId'] = "1";
+				$data['messages'][1]['stickerId'] = "131";
 				$post = json_encode($data);
 				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
