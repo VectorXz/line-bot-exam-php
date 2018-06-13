@@ -19,14 +19,15 @@ if (!is_null($events['events'])) {
 			if($message == "!welcome") {
 				// Get text sent
 				//$text = $event['source']['userId'];
-				$text = "Welcome to my world";
+				$imgurl = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
 				// Get replyToken
 				$replyToken = $event['replyToken'];
 
 				// Build message to reply back
 				$messages = [
-					'type' => 'text',
-					'text' => $text
+					'type' => 'image',
+					'originalContentUrl' => $imgurl,
+					'previewImageUrl' => $imgurl
 				];
 
 				// Make a POST Request to Messaging API to reply to sender
