@@ -15,7 +15,7 @@ if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-			$message = $event[0]['message']['text'];
+			$message = $event['message']['text'];
 			if($message == "!welcome") {
 				// Get text sent
 				//$text = $event['source']['userId'];
@@ -51,7 +51,7 @@ if (!is_null($events['events'])) {
 			} else {
 				// Get text sent
 				//$text = $event['source']['userId'];
-				$text = "Command not found : received ".var_dump($event);
+				$text = "Command not found : received ".$message;
 				// Get replyToken
 				$replyToken = $event['replyToken'];
 
