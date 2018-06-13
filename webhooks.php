@@ -22,20 +22,7 @@ if (!is_null($events['events'])) {
 				$imgurl = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
 				// Get replyToken
 				$replyToken = $event['replyToken'];
-
-				// Build message to reply back
-				$messages = [
-					[
-						'type' => 'text',
-						'text' => 'เมี้ยวว'
-					],
-					[
-						'type' => 'image',
-						'originalContentUrl' => $imgurl,
-						'previewImageUrl' => $imgurl
-					]
-				];
-
+				
 				// Make a POST Request to Messaging API to reply to sender
 				$url = 'https://api.line.me/v2/bot/message/reply';
 				$data = [
@@ -68,7 +55,32 @@ if (!is_null($events['events'])) {
 				curl_close($ch);
 
 				echo $result . "\r\n";
+			} else if ($message == "!pun") {
+				$replyToken = $event['replyToken'];
+
+				// Make a POST Request to Messaging API to reply to sender
+				$url = 'https://api.line.me/v2/bot/message/reply';
+				$data = [
+					'replyToken' => $replyToken,
+				];
+				$data['messages'][0]['type'] = "image";
+				$data['messages'][0]['originalContentUrl'] = "https://www.vectorx2263.com/linebot/randomimg/index.php";
+				$data['messages'][0]['previewImageUrl'] = "https://www.vectorx2263.com/linebot/randomimg/index.php";
+				$post = json_encode($data);
+				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+				$ch = curl_init($url);
+				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+				curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+				$result = curl_exec($ch);
+				curl_close($ch);
+
+				echo $result . "\r\n";
 			} else {
+				/*
 				// Get text sent
 				//$text = $event['source']['userId'];
 				$text = "Command not found : received ".$message;
@@ -100,6 +112,7 @@ if (!is_null($events['events'])) {
 				curl_close($ch);
 
 				echo $result . "\r\n";
+				*/
 			}
 		}
 	}
